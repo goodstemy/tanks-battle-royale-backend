@@ -21,7 +21,8 @@ io.on('connection', socket => {
 		console.log(`${socket.id} user disconnected`)
 		const index = players.indexOf(socket.id)
 		players = players.splice(index, index)
-		socket.broadcast.emit('disconnect', socket.id)
+		io.emit('disconnect', socket.id)
+		// socket.broadcast.emit('disconnect', socket.id)
 	})
 })
 
