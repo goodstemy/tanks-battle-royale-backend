@@ -17,6 +17,10 @@ io.on('connection', socket => {
 		io.emit('tanks info', info);
 	});
 
+	socket.on('destroyed tree', (tree) => {
+		socket.broadcast.emit('destroyed tree', tree);
+	});
+
 	socket.on('disconnect', (id) => {
 		console.log(`${socket.id} user disconnected`);
 		const index = players.indexOf(socket.id);
